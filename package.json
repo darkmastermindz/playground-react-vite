@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "lint": "prettier --check 'src/**/*.{js,jsx,ts,tsx}'",
+    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
+    "preview": "vite preview",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
@@ -24,12 +26,20 @@
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "autoprefixer": "^10.4.19",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react": "^7.34.3",
-    "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-react-refresh": "^0.4.7",
+    "husky": "^9.1.1",
+    "lint-staged": "^15.2.7",
     "postcss": "^8.4.39",
+    "prettier": "^3.3.3",
     "tailwindcss": "^3.4.6",
     "vite": "^5.3.4"
+  },
+  "description": "A playground project to explore and experiment with Vite, React, Chakra UI, and Tailwind CSS. This project includes a sidebar navigation similar to Jira, a responsive design, and a to-do list component with an accordion.",
+  "main": "postcss.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "lint-staged": {
+    "src/**/*.{js,jsx}": "prettier --write",
+    "*.{js,jsx,ts,tsx}": "prettier --write"
   }
 }
