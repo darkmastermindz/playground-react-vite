@@ -1,6 +1,14 @@
 # playground-react-vite
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/db92d949-49a1-4101-b8b1-cd5c0dfd62f2/deploy-status)](https://app.netlify.com/sites/playground-react-vite/deploys)
+
 A playground project to explore and experiment with Vite, React, Chakra UI, and Tailwind CSS. This project includes a sidebar navigation similar to Jira, a responsive design, and a to-do list component with an accordion.
+
+## Make your own
+
+Clicking this button will clone the repo and deploy it to Netlify, be sure to rename your repo afterwards!
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/darkmastermindz/playground-react-vite&utm_source=github)
 
 # Features
 
@@ -84,3 +92,4 @@ project-root/
 ├── package.json
 ├── postcss.config.js
 └── README.md
+```
