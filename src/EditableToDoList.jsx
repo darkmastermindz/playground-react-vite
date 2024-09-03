@@ -1,6 +1,6 @@
 import React, { useReducer, useEffect } from "react";
 import { VStack, Box, Heading, Button } from "@chakra-ui/react";
-import EditableCard from "./EditableCard";
+import EditableCard from "./components/EditableCard";
 
 // Initial state for the reducer
 const initialState = {
