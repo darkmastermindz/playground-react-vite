@@ -1,10 +1,10 @@
 import React, { useReducer, useEffect } from "react";
 import { VStack, Box, Heading, Button } from "@chakra-ui/react";
-import EditableCard from "./components/EditableCard";
+import EditableCard from "./compinents/EditableCard";
 
 // Initial state for the reducer
 const initialState = {
-  todos: ["Buy groceries", "Walk the dog", "Read a book", "Go Rock Climbing!"],
+  todos: ["Buy groceries", "Walk the dog", "Read a book"],
   previousTodos: null, // To store the previous state for undo functionality
 };
 
