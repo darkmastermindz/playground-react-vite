@@ -54,6 +54,16 @@ const Sidebar = () => {
             {isOpen ? "Accordion To-Do List" : <Text fontSize="xs">A</Text>}
           </Button>
         </Link>
+        <Link to="/editable-to-do-list">
+          <Button
+            colorScheme="teal"
+            variant="solid"
+            w={isOpen ? "full" : "auto"}
+            justifyContent="flex-start"
+          >
+            {isOpen ? "Editable To-Do List" : <Text fontSize="xs">E</Text>}
+          </Button>
+        </Link>
       </VStack>
     </Box>
   );
