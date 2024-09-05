@@ -91,25 +91,45 @@ The `EditableToDoList` component lets users manage a list of tasks dynamically:
 ## Project Structure
 
 ```bash
-project-root/
-├── public/
-│   └── index.html
-├── src/
-│   ├── components/
-│   │   ├── FilterForm.jsx
-│   │   ├── Sidebar.jsx
-│   │   ├── TaskAccordion.jsx
-│   │   └── TaskCard.jsx
-│   ├── data/
-│   │   └── DataFetcher.js
-│   ├── AccordionToDoList.jsx
-│   ├── EditableToDoList.jsx
-│   ├── App.jsx
-│   └── main.jsx
-├── tailwind.config.js
+playground-react-vite
+├── LICENSE
+├── README.md
+├── index.html
+├── package-lock.json
 ├── package.json
 ├── postcss.config.js
-└── README.md
+├── prettierrc.cjs
+├── public
+│   └── vite.svg
+├── src
+│   ├── App.css
+│   ├── App.jsx
+│   ├── assets
+│   │   └── react.svg
+│   ├── components
+│   │   ├── EditableItem.jsx
+│   │   ├── EditableList.jsx
+│   │   ├── FilterForm.jsx
+│   │   ├── Sidebar.jsx
+│   │   ├── TaskAccordion.jsx
+│   │   └── TaskCard.jsx
+│   ├── data
+│   │   └── DataFetcher.js
+│   ├── dataSlice.js
+│   ├── index.css
+│   ├── main.jsx
+│   ├── pages
+│   │   ├── AccordionToDoList.jsx
+│   │   └── EditableToDoList.jsx
+│   ├── store.js
+│   ├── style.css
+│   └── theme.js
+├── tailwind.config.js
+└── vite.config.js
+
+7 directories, 28 files
+
+```
 
 ## License
 
