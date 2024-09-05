@@ -1,8 +1,8 @@
 import React, { useEffect, useReducer, useState } from "react";
 import { VStack, Button, Box, Heading } from "@chakra-ui/react";
-import FilterForm from "./components/FilterForm";
-import TaskAccordion from "./components/TaskAccordion";
-import { hardcodedData, fetchData as fetchNewData } from "./data/DataFetcher";
+import FilterForm from "../components/FilterForm";
+import TaskAccordion from "../components/TaskAccordion";
+import { hardcodedData, fetchData as fetchNewData } from "../data/DataFetcher";
 
 // Initial state with three categories
 const initialState = {

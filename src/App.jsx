@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
-  ChakraProvider,
   Box,
   Flex,
   VStack,
@@ -14,8 +13,8 @@ import {
 } from "@chakra-ui/react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
-import AccordionToDoList from "./AccordionToDoList";
-import EditableToDoList from "./EditableToDoList"; // Import the EditableToDoList component
+import AccordionToDoList from "./pages/AccordionToDoList";
+import EditableToDoList from "./pages/EditableToDoList"; // Import the EditableToDoList component
 import Sidebar from "./components/Sidebar";
 
 function App() {

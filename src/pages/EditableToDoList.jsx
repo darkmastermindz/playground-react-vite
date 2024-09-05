@@ -11,8 +11,8 @@ import {
   Divider,
 } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateDataSlice, selectData } from "./dataSlice";
-import EditableList from "./components/EditableList";
+import { updateDataSlice, selectData } from "../dataSlice";
+import EditableList from "../components/EditableList";
 
 const EditableToDoList = () => {
   const dispatch = useDispatch(); // Get the dispatch function to trigger actions in the Redux store
