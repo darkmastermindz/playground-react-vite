@@ -14,9 +14,15 @@ function EditableItem({ item, onSave }) {
   useEffect(() => {
     if (!isValidId(item.id)) {
       setError(`Invalid ID: "${item.id}". It must contain at least one number.`);
+      setCurrentValue({
+        ...item,
+        renderId: "",
+        renderText: `Invalid ID: ${item.id}`, // Render invalid message if no numbers are found
+      });
     } else {
       setError(""); // Clear the error if valid
-      const renderId = item.id.match(/\d+/)[0]; // Extract the number part from the id
+      const match = item.id.match(/\d+/); // Match the number part of the id
+      const renderId = match ? match[0] : ""; // Safely extract the number or set to empty string if no match
       setCurrentValue({
         ...item,
         renderId,
@@ -43,14 +49,22 @@ function EditableItem({ item, onSave }) {
     
     if (!isValidId(newId)) {
       setError("ID must contain at least one number.");
+      setCurrentValue({
+        ...currentValue,
+        id: newId,
+        renderText: `Invalid ID: ${newId}`, // Set invalid message if no numbers are found
+      });
     } else {
       setError(""); // Clear the error if valid
+      const match = newId.match(/\d+/); // Match the number part of the id
+      const renderId = match ? match[0] : ""; // Safely extract the number or set to empty string if no match
+      setCurrentValue({
+        ...currentValue,
+        id: newId,
+        renderId,
+        renderText: `${renderId} ${currentValue.description}`, // Dynamically update renderText with renderId
+      });
     }
-
-    setCurrentValue({
-      ...currentValue,
-      id: newId, // Update the id field
-    });
   };
 
   const handleDescriptionChange = (e) => {
