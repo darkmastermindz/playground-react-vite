@@ -6,23 +6,17 @@ function EditableItem({ item, onSave }) {
   const [currentValue, setCurrentValue] = useState(item);
   const [error, setError] = useState("");
 
-  // Function to extract the renderId from the id
-  const extractRenderId = (id) => {
-    const matches = id.match(/\d+/); // Match the first sequence of digits in the id
-    if (matches && matches.length) {
-      return matches[0]; // Return the first match (if any)
-    }
-    return null; // Return null if no digits are found
+  // Function to check if the ID contains a number
+  const isValidId = (id) => {
+    return /\d/.test(id); // Check if there's at least one digit in the id
   };
 
   useEffect(() => {
-    const renderId = extractRenderId(item.id);
-    
-    // If the id doesn't contain a valid number, show an error
-    if (!renderId) {
-      setError(`Invalid ID format: "${item.id}". It must contain at least one number.`);
+    if (!isValidId(item.id)) {
+      setError(`Invalid ID: "${item.id}". It must contain at least one number.`);
     } else {
       setError(""); // Clear the error if valid
+      const renderId = item.id.match(/\d+/)[0]; // Extract the number part from the id
       setCurrentValue({
         ...item,
         renderId,
@@ -44,10 +38,25 @@ function EditableItem({ item, onSave }) {
     onSave(currentValue); // Pass the current object back to onSave
   };
 
-  const handleChange = (e) => {
+  const handleIdChange = (e) => {
+    const newId = e.target.value;
+    
+    if (!isValidId(newId)) {
+      setError("ID must contain at least one number.");
+    } else {
+      setError(""); // Clear the error if valid
+    }
+
+    setCurrentValue({
+      ...currentValue,
+      id: newId, // Update the id field
+    });
+  };
+
+  const handleDescriptionChange = (e) => {
     const updatedDescription = e.target.value;
     const updatedRenderText = `${currentValue.renderId} ${updatedDescription}`;
-    
+
     setCurrentValue({
       ...currentValue,
       description: updatedDescription, // Update the description field
@@ -58,12 +67,22 @@ function EditableItem({ item, onSave }) {
   return (
     <HStack spacing={4}>
       {isEditing ? (
-        <Input
-          value={currentValue.description}
-          onChange={handleChange}
-          size="sm"
-          isInvalid={!!error} // Show Chakra UI invalid state if there's an error
-        />
+        <>
+          <Input
+            value={currentValue.id}
+            onChange={handleIdChange}
+            size="sm"
+            isInvalid={!!error} // Mark input as invalid if there's an error
+            placeholder="ID"
+          />
+          <Input
+            value={currentValue.description}
+            onChange={handleDescriptionChange}
+            size="sm"
+            isInvalid={!!error} // Optionally handle invalid description here
+            placeholder="Description"
+          />
+        </>
       ) : (
         <span>{currentValue.renderText}</span> // Show renderText when not editing
       )}
@@ -75,7 +94,12 @@ function EditableItem({ item, onSave }) {
       )}
 
       {isEditing ? (
-        <Button aria-label="Save" size="sm" onClick={handleSaveClick} isDisabled={!!error}>
+        <Button
+          aria-label="Save"
+          size="sm"
+          onClick={handleSaveClick}
+          isDisabled={!!error} // Disable Save button if there's an error
+        >
           Save
         </Button>
       ) : (
